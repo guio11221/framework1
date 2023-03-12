@@ -1,14 +1,16 @@
 module.exports=function(app){
 
-app.get('/noticias', function(req,res){ 
+app.get('/noticias', async function(req,res){ 
 	
-	var connection = app.config.dbConnection();
+	var db = app.config.dbConnection();
+	var pool = app.config.dbConnection()
 
-	connection.query('select * from noticias', function(error,result){
-		res.render("noticias/noticias", {noticias: result});
-	});
+
+  var result = await pool.query('select * from noticias')
+
+  console.log(result.rows)
+  res.render("noticias/noticias", {dados: result.rows});
+	
 		
 });
-
-	
 };

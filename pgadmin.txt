@@ -1,0 +1,16 @@
+
+
+CREATE TABLE noticias (
+  id_noticia serial primary key,
+  titulo varchar(100),
+  noticia text,
+  data_criacao timestamp default current_timestamp
+);
+
+
+-- Inserir os valores na tabela noticias
+INSERT INTO noticias (titulo, noticia) VALUES ('Primeira notícia', 'O portal foi lançado');
+INSERT INTO noticias (titulo, noticia) VALUES ('Segunda notícia', 'O portal está a todo vapor');
+
+-- Selecionar todos os registros da tabela noticias
+SELECT * FROM noticias;
