@@ -3,7 +3,7 @@ var app = require('./config/server.js');
 
 /**
  * 
- * @author Guii Santos <@typedef>
+ * @author Guii Santos :) <@async({*})>  
  */
 
 
