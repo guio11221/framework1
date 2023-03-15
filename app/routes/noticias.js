@@ -1,14 +1,19 @@
 module.exports = function (app) {
 
+	// Criando a rota noticias
 	app.get('/noticias', async function (req, res) {
 
-		const pool = app.config.dbConnection;
+		 // pegando a conection com banco de dados 
+		const connection = app.config.dbConnection ;
+
+        //Pegando todas as noticias do banco de dados
+		 connection.query('select * from noticias', (err,result) => {
+
+			console.log(result)
+			res.render("noticias/noticias", { dados: result /** Enviando em JSON */ });
+		 })
 
 
-		var result = await pool.query('select * from noticias')
-
-		console.log(result.rows)
-		res.render("noticias/noticias", { dados: result.rows });
 
 
 	});

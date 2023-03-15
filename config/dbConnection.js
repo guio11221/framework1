@@ -1,16 +1,22 @@
 const { dataMysql } = require('./config');
 const mysql = require('mysql');
 
-const connMySQL = () => {
-  console.log('Conexão com BD MySQL foi estabelecida');
+const connMySQL =  () => {
   
-  return mysql.createConnection({
+ var  connection =  mysql.createConnection({
     host: dataMysql.host,
-    port: dataMysql.port,
     user: dataMysql.user,
     password: dataMysql.password,
     database: dataMysql.database
-  });
+  })
+
+  connection.connect((err) => {
+    if(err){ console.log }
+
+    console.log(`Conectado com o Banco de dados`)
+  })
+
+  return connection
 };
 
 
