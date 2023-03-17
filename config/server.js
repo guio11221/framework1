@@ -1,6 +1,7 @@
 var express = require('express'); // importando o express
 var consign = require('consign'); // importando o consign
 var path = require('path') // path lida com os caminhos 
+const bodyParser = require('body-parser')
 var app = express(); // armazenando e executando o express
 
 /** Configuração do ejs */
@@ -10,6 +11,9 @@ app.set("views", path.join(__dirname, "../app/views")); // onde fica as telas da
 app.use(express.static(path.join(__dirname, "../app/public"))) // onde vai ficar todo o css.
 
 
+//o bodyParser vai ser responsavel pelo tratamento do formulario.
+// o extended: true é para ser implementado atraves do JSON
+app.use(bodyParser.urlencoded({extended: true}))
 
  // configuração do consign para iniciar as rotas
 consign()
