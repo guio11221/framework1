@@ -5,8 +5,10 @@ module.exports = (app) => {
 
     const pool = app.config.dbConnection; // pegando a conection do banco de dados
 
+    var getNoticia = app.app.models.noticiasModel
+
     // pegando um noticia com o id informado na query 
-    pool.query('SELECT * FROM noticias WHERE id_noticia = ?', [id], async (err, result) => {
+    getNoticia.getNoticia(id, pool, (err, result)=>{
 
       // render a pagina ejs para mostrar a noticia
       res.render("noticias/noticia", { noticias: result/** Enviando os dados em JSON */ });

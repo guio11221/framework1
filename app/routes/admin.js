@@ -19,13 +19,13 @@ module.exports = function (app) {
         const pool = app.config.dbConnection; 
         var noticiasModel = app.app.models.noticiasModel
         var noticia = req.body
-        var { titulo, noticia } = req.body // outra forma de pegar
 
-        console.log(noticiasModel)
-        noticiasModel.noticiasSalvar(noticia, pool, (err, result)=>{
+        // console.log(noticiasModel)
+        noticiasModel.SalvarNoticia(noticia, pool, (err, result)=>{
 
-             if(err){ console.log }
+             if(err){ console.log(err) }
 
+        //      console.log(result)
              res.redirect('/noticias')
         })
 

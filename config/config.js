@@ -3,7 +3,7 @@ const dataMysql = {
 
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'ifms',
     database: 'portal_noticias'
 
 }

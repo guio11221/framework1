@@ -17,7 +17,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 
  // configuração do consign para iniciar as rotas
 consign()
-  .include('app/routes')
+  .include('app/routes') // incluido as rotas ao consign
+  .then('app/models') // incluindo o models ao consign
   .then('config/dbConnection.js')
   .into(app);
 
@@ -26,6 +27,8 @@ consign()
 app.use('*', (req,res, next) =>{
 
   res.status(404).send('Que que tu ta tentando entrar ai meu chapa')
+
+  next()
 })  
 
  // 
