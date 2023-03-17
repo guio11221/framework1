@@ -11,102 +11,45 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet"/>
 
-  <style>
-  body {
-    background-color: #f8f9fa;
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 50px;
-}
 
-h1 {
-    text-align: center;
-}
-
-#search-form {
-    margin-bottom: 20px;
-}
-
-#search-form label {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-#search-form input[type="number"] {
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    margin-left: 10px;
-    width: 150px;
-}
-
-#search-form button[type="submit"] {
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    margin-left: 10px;
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-}
-
-#search-form button[type="submit"]:hover {
-    background-color: #0069d9;
-}
-
-.table {
-    margin-top: 30px;
-}
-
-.table thead th {
-    font-size: 1.2rem;
-    font-weight: bold;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-}
-
-.table tbody td {
-    font-size: 1.1rem;
-    border: none;
-}
-</style>
   </head>
   <body>
+
+    <%- include ('../menu/nav.ejs') %>
+
     <center>
 		<h1>Notícias</h1>
 	</center>
 
-    <form id="search-form" action="/noticia" method="get" class="form-inline justify-content-center">
-        <label for="id_noticia">Digite o ID da notícia:</label>
-        <input type="number" class="form-control" name="id" id="id_noticia" required>
-        <button type="submit">Buscar</button>
-    </form>
 
-    <table
-      id="table"
-      data-toggle="table"
-    
+  <table
+  id="table"
+  data-toggle="table"
+  showColumns="true"
+  showRefresh="true"
+  class="table"
+>
+  <thead class="thead-dark">
+    <tr>
+      <th data-field="nome">ID</th>
+      <th data-field="cpf">TITULO</th>
+      <th data-field="celular">NOTICIAS</th>
+    </tr>
+  </thead>
+  <% if(noticias == ''){ %>
 
-      showColumns="true"
-      showRefresh="true"
-	  class="table"
-    >
-	
-		<thead class="thead-dark">
+  <% } else { %>
+    <tbody>
+ 
         <tr>
-          <th data-field="nome">ID</th>
-          <th data-field="cpf">TITULO</th>
-          <th data-field="celular">NOTICIAS</th>
+          <td><%= noticias[0].id_noticia %></td>
+          <td><%= noticias[0].titulo %></td>
+          <td><%= noticias[0].noticia %></td>
         </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td><%= dados[0].id_noticia %></td>
-          <td><%= dados[0].titulo %></td>
-          <td><%= dados[0].noticia %></td>
-        </tr>
-      </tbody>
-    </table>
-
+     
+    </tbody>
+  <% } %>
+</table>
 
 
 
