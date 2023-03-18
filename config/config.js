@@ -4,7 +4,8 @@ const dataMysql = {
 
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: '', // local
+    // password: 'ifms', // banco da escola
     database: 'portal_noticias'
 }
 

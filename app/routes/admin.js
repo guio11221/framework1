@@ -4,7 +4,7 @@ module.exports = function (app) {
           const pool = app.config.dbConnection;
           const getNoticia = app.app.models.noticiasModel
 
-          getNoticia.getNoticias( pool, (err, result) => { // 
+          getNoticia.getNoticias(pool, (err, result) => { // 
 
                res.render('admin/form_add_noticia.ejs', { dados: result });
           })
@@ -12,21 +12,19 @@ module.exports = function (app) {
      });
 
      app.post('/noticia/salvar', (req, res) => {
+          const pool = app.config.dbConnection;
+          var noticiasModel = app.app.models.noticiasModel;
+          var noticia = req.body;
 
-          const pool = app.config.dbConnection; // pegando a conexão 
-          var noticiasModel = app.app.models.noticiasModel // pegando a função 
-          var noticia = req.body
 
-          // console.log(noticiasModel)
           noticiasModel.SalvarNoticia(noticia, pool, (err, result) => {
+               if (err) {
+                    console.log(err);
+               }
 
-               if (err) { console.log(err) } // se tiver error
-               
-               // redirecionado para a pagina noticias
-               res.redirect('/noticias')
-          })
-
-     })
+               res.redirect('/noticias');
+          });
+     });
 
      app.get('/noticia/deletar', (req, res) => {  //! exemplo /noticias/deletar?id=1
 
@@ -53,7 +51,7 @@ module.exports = function (app) {
                if (err) { console.log(err) } // ver se teve error no query do banco de dados 
 
                // Redirecionar para a página /noticias
-               res.redirect('/noticias') 
+               res.redirect('/noticias')
           })
      })
 

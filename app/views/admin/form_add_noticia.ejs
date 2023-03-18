@@ -26,11 +26,10 @@
 	<%- include ('../menu/nav.ejs') %>
 
 
-	<div class="pagetitle ">
 
-		<form class="needs-validation" id="form-id" action="/noticia/salvar" method="post" novalidate>
+		<form class="needs-validation" id="form-id" action="/noticia/salvar" method="post"  novalidate>
 
-		  <div class="modal-dialog" id="tela1" role="document"> <!--! Tela --->
+		  <div class="modal-dialog" role="document"> 
 			<div class="modal-content">
 			  <div class="modal-header">
 				<h5 class="modal-title"> Salvar Uma Notícia kkkk</h5>
@@ -41,14 +40,36 @@
 				  <div class="col mb-1">
 					<label for="dobBasic" class="form-label">Titulo:</label>
 					<input type="text" name="titulo" placeholder="Titulo da notícia" autocomplete="off" class="form-control" required>
-
+					<div class="invalid-feedback">
+						Você deve por um titulo kkk não sou vidente para saber que notícia é essa ;--;.
+					  </div>
 				  </div>
 				  <div>
 					<div class="col mb-0">
 					  <label for="dobBasic" class="form-label">Notícia:</label>
 					  <textarea class="form-control" placeholder="Do que se trata a notícia?" autocomplete="off" name="noticia" id="textArea2" rows="2" required></textarea>
-
+					  <div class="invalid-feedback">
+						Você deve Escrever alguma coisa né meu chapa kskkssz.
+					  </div>
 					  <br>
+					</div>
+					<div class="custom-file">
+						<input name="arquivo" type="file" class="custom-file-input"  id="validatedCustomFile" multiple required>
+						<label class="custom-file-label" for="validatedCustomFile">Escolher arquivo...</label>
+						<div class="invalid-feedback">Tá, cadê a imagem meu chapa?</div>
+					  </div>
+				  </div>
+				  
+				  <div class="form-group">
+					<br>
+					<div class="form-check">
+					  <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required>
+					  <label class="form-check-label" for="invalidCheck3">
+						Concordo com os termos e condições
+					  </label>
+					  <div class="invalid-feedback">
+						Você deve concordar em ser cálvo
+					  </div>
 					</div>
 				  </div>
 				</div>
@@ -64,44 +85,14 @@
 			  </div>
 
 			</div>
-		  </div> <!--? final --->
 		</form>
 
-
-		<script>
-		  var forms = document.getElementsByClassName('needs-validation');
-		  var validation = Array.prototype.filter.call(forms, function (form) {
-			form.addEventListener('submit', function (event) {
-			  if (form.checkValidity() === false) {
-				event.preventDefault();
-				event.stopPropagation();
-
-				Swal.fire({
-				  icon: 'error',
-				  title: 'Falha ao enviar',
-				  text: 'Algum campo do formulario esta incompleto...!!',
-				  confirmButtonText: 'OK'
-				});
-
-			  } else {
-				event.preventDefault();
-				Swal.fire({
-				  icon: 'success',
-				  title: 'Validação bem sucedida!',
-				  text: 'Seus dados foram enviados com sucesso.',
-				  confirmButtonText: 'OK'
-				});
-				form.submit(); // aqui estava forms.submit(), deve ser form.submit()
-			  }
-			  form.classList.add('was-validated');
-			}, false);
-		  });
+	
 
 
-		</script>
 
-
-	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="../noticia/index.js"></script>
+ 	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

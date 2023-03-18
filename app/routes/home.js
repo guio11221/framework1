@@ -6,7 +6,9 @@ module.exports = function (app) {
 
 		pool.query('SELECT * FROM noticias', (err, result) => {
 
-			 if(err){ console.log }
+			 if(err){ console.log(err) }
+
+			
 			res.render('home/home.ejs', { dados: result });
 		})
 

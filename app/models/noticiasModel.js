@@ -1,6 +1,6 @@
 module.exports = function () {
 
-   // Pega todas as Notícias
+  // Pega todas as Notícias
   this.getNoticias = (connection, callback) => {
     connection.query('SELECT * from noticias', callback)
   }
@@ -18,11 +18,9 @@ module.exports = function () {
   }
   // Atualiza a notícia pelo id
   this.UpDateNoticia = (id, noticia, connection, callback) => {
-    console.log(noticia)
-     connection.query(`UPDATE noticias SET titulo = ?, noticia = ?  WHERE id_noticia = ?`,
-     [ noticia.titulo, noticia.noticia, id ], callback )
+    connection.query(`UPDATE noticias SET titulo = ?, noticia = ?  WHERE id_noticia = ?`,
+      [noticia.titulo, noticia.noticia, id], callback)
   }
-
 
   return this
 }
