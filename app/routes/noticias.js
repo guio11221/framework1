@@ -10,7 +10,7 @@ module.exports = function (app) {
         //Pegando todas as noticias do banco de dados
 		 connection.query('select * from noticias', (err,result) => {
 
-			console.log(result)
+	
 			res.render("noticias/noticias", { dados: result /** Enviando em JSON */ });
 		 })
 
