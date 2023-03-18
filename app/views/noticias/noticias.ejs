@@ -26,6 +26,7 @@
   <body>
     <%- include ('../menu/nav.ejs') %>
   
+
     <div class="content-wrapper">
       <div class="layout-wrapper layout-content-navbar">
           <div class="layout-container">
@@ -33,6 +34,8 @@
                   <div class="container-xxl flex-grow-1 container-p-y">
                       <div class="row">
                           <div class="table-responsive">
+
+
                               <table id="table" data-toggle="table" data-pagination="true" data-search="true" showColumns="true" showRefresh="true">
                                   <thead>
                                       <tr>
@@ -40,8 +43,15 @@
                                           <th data-field="titulo">Titulo</th>
                                           <th data-field="noticia">Noticia</th>
                                           <th data-field="criador">Criador </th>
+                                          <th data-field="ver">Ver Notícia</th>
                                       </tr>
                                   </thead>
+                                  <% if(dados == ''){ %>
+
+                                    <tbody>
+
+                                    </tbody>
+                                   <% }else{ %>
                                   <tbody>
                                       <% for(var i=0; i < dados.length; i++){ %>
                                       <tr>
@@ -68,6 +78,7 @@
                                       </tr>
                                       <% } %>
                                   </tbody>
+                                  <% } %>
                               </table>
                           </div>
                       </div>

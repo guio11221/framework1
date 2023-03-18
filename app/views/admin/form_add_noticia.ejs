@@ -21,32 +21,32 @@
     <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
 	<title>Portal de notícias</title>
 </head>
-<body style="background-color: rgb(122, 120, 120); color: aliceblue;">
+<body class="bg-dark">
 	  
 	<%- include ('../menu/nav.ejs') %>
 
 
-	<div class="pagetitle">
+	<div class="pagetitle ">
 
-		<form class="needs-validation" id="form-id" action="/form/salvarSolicitacao" method="post" novalidate>
+		<form class="needs-validation" id="form-id" action="/noticia/salvar" method="post" novalidate>
 
 		  <div class="modal-dialog" id="tela1" role="document"> <!--! Tela --->
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title"> Form de solicitação</h5>
+				<h5 class="modal-title"> Salvar Uma Notícia kkkk</h5>
 			  </div>
 
 			  <div class="modal-body">
 				<div class="row g-2">
 				  <div class="col mb-1">
 					<label for="dobBasic" class="form-label">Titulo:</label>
-					<input type="text" name="titulo" class="form-control">
+					<input type="text" name="titulo" placeholder="Titulo da notícia" autocomplete="off" class="form-control" required>
 
 				  </div>
 				  <div>
 					<div class="col mb-0">
 					  <label for="dobBasic" class="form-label">Notícia:</label>
-					  <textarea class="form-control" name="noticia" id="textArea2" rows="2" required></textarea>
+					  <textarea class="form-control" placeholder="Do que se trata a notícia?" autocomplete="off" name="noticia" id="textArea2" rows="2" required></textarea>
 
 					  <br>
 					</div>
@@ -54,7 +54,7 @@
 				</div>
 				</div>
 				<div class="modal-footer ">
-				  <button type="button" class="btn btn-outline-dark" id="proximo">Salvar
+				  <button type="submit" class="btn btn-outline-dark" id="proximo">Salvar
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 					  class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
 					  <path fill-rule="evenodd"
