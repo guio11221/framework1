@@ -1,0 +1,11 @@
+[
+{"type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"portal_noticias"},
+{"type":"table","name":"noticias","database":"portal_noticias","data":
+[
+{"id_noticia":"1","titulo":"Primeira notícia kkkk","noticia":"Nada não kk","data_criacao":"2023-03-14 21:14:42"},
+{"id_noticia":"2","titulo":"Segunda notícia","noticia":"O portal está a todo vapor","data_criacao":"2023-03-14 21:14:42"},
+{"id_noticia":"4","titulo":"Titulo Da Notícia Salva","noticia":"Isso é só um teste, pois não sei o que escrever kk","data_criacao":"2023-03-17 22:09:58"}
+]
+}
+]
