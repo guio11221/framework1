@@ -23,7 +23,7 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <title>Portal de notícias</title>
   </head>
-  <body>
+  <body class="bg-dark">
     <%- include ('../menu/nav.ejs') %>
   
 
@@ -47,12 +47,11 @@
                                       </tr>
                                   </thead>
                                   <% if(dados == ''){ %>
+                                    <tbody></tbody>
 
-                                    <tbody>
-
-                                    </tbody>
                                    <% }else{ %>
-                                  <tbody>
+
+                                  <tbody style="color: aliceblue;">
                                       <% for(var i=0; i < dados.length; i++){ %>
                                       <tr>
                                           <td>
@@ -70,7 +69,7 @@
                                           <td>
                                               <!-- Button trigger modal -->
                                             <a href="/noticia?id=<%= dados[i].id_noticia %>">
-                                              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">
+                                              <button type="button" class="btn btn-primary">
                                                 Ver Notícia
                                               </button>
                                             </a>

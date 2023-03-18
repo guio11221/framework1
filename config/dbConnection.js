@@ -1,10 +1,10 @@
-const mysql = require('mysql');
-const { dataMysql } = require('./config');
+const mysql = require('mysql'); // importando o modulo do myysql.
+const { dataMysql } = require('./config'); // importando as config do mysql.
 
 
 const connMySQL =  () => {
   
-  // criando a conexão com o banco de dados
+  // criando a conexão com o banco de dados.
  var  connection =  mysql.createConnection({
     host: dataMysql.host,
     user: dataMysql.user,
@@ -13,13 +13,13 @@ const connMySQL =  () => {
   })
 
   // verifiicando a conexão com o banco de dados
-  connection.connect((err) => {
-    if(err){ return console.log }
+  connection.connect((err) => { // verificando a connection com o banco de dados.
+    if(err){ return console.log } // se tiver error, mostra no console.
 
-    return console.log(`Conectado com o Banco de dados`)
+    return console.log(`Conectado com o Banco de dados`) // se ocorrer tudo bem, mostra essa mensagem no console.
   })
 
-  return connection
+  return connection // retornando a connection
 };
 
 

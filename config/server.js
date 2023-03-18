@@ -1,44 +1,43 @@
 var express = require('express'); // importando o express
 var consign = require('consign'); // importando o consign
-var path = require('path') // path lida com os caminhos 
-const bodyParser = require('body-parser') // lidar com o formulario 
-const fileUpload = require('express-fileupload'); // lidar com os arquivos 
-const fs = require('fs'); // lidar com o arquivo para eu salvar as imagens das noticias
-var app = express(); // armazenando e executando o express
+var path = require('path') // importando o módulo de lidar com caminhos
+const bodyParser = require('body-parser') // importando o módulo de lidar com dados do formulário
+const fileUpload = require('express-fileupload'); // importando o módulo de lidar com upload de arquivos
+const fs = require('fs'); // importando o módulo de lidar com arquivos do sistema de arquivos
+var app = express(); // criando o servidor com o express
 
 /** Configuração do ejs */
-app.set('view engine', 'ejs');
-// app.set('views', './app/views');
-app.set("views", path.join(__dirname, "../app/views")); // onde fica as telas das páginas.
-app.use(express.static(path.join(__dirname, "../app/public"))) // onde vai ficar todo o css.
+app.set('view engine', 'ejs'); // definindo a engine de visualização para ejs
+app.set("views", path.join(__dirname, "../app/views")); // definindo o diretório das views
+app.use(express.static(path.join(__dirname, "../app/public"))) // definindo o diretório dos arquivos estáticos
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-//o bodyParser vai ser responsavel pelo tratamento do formulario.
-// o extended: true é para ser implementado atraves do JSON
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json());
+app.use(express.json()); // habilitando o middleware de parsing de json
+app.use(express.urlencoded({ extended: true })); // habilitando o middleware de parsing de urlencoded
+app.use(bodyParser.urlencoded({extended: true})) // habilitando o middleware de parsing de dados do formulário
+app.use(bodyParser.json()); // habilitando o middleware de parsing de json para o body do request
 
-app.use(fileUpload({
-  useTempFiles: true,
-  tempFileDir: path.join(__dirname, 'tmp')
+app.use(fileUpload({ // habilitando o middleware de upload de arquivos
+useTempFiles: true,
+tempFileDir: path.join(__dirname, 'tmp') // definindo o diretório temporário para armazenar os arquivos temporários
 }));
 
- // configuração do consign para iniciar as rotas
+// configurando o consign para carregar rotas e modelos e configurar a conexão com o banco de dados
 consign()
-  .include('app/routes') // incluido as rotas ao consign
-  .then('app/models') // incluindo o models ao consign
-  .then('config/dbConnection.js')
-  .into(app);
+.include('app/routes') // incluindo as rotas
+.then('app/models') // incluindo os modelos
+.then('config/dbConnection.js') // incluindo a conexão com o banco de dados
+.into(app); // adicionando as rotas, modelos e conexão ao app express
 
-  // caso o user acesse uma rota que não existe..!!
-app.use('*', (req,res, next) =>{
+// middleware para lidar com rotas não encontradas
+app.use('*', (req, res, next) => {
+res.status(404).send('Que que tu ta tentando entrar ai meu chapa')
+next()
+});
 
-  res.status(404).send('Que que tu ta tentando entrar ai meu chapa')
+// Configuração da porta do servidor
+app.listen(3000, function () {
+console.log('Server running on port ' + 3000);
+});
 
-  next()
-})  
-
- // 
-module.exports = app;
-
+// Exportando o app
+module.exports = app; // exportando o app para uso em outros arquivos
