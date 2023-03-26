@@ -4,9 +4,7 @@ module.exports = function (app) {
     const noticiasModel = new app.app.models.NoticiasDAO(connection); // pasando a conection como parametro
 
     noticiasModel.getNoticias((err, result) => {
-      if (err) {
-        console.log(err);
-      } // ver se teve error no query do banco de dados
+      if (err) { console.log(err) } // ver se teve error no query do banco de dados
       var errorMessage = req.flash("error");
       res.render("admin/form_add_noticia.ejs", {
         dados: result,
@@ -21,23 +19,18 @@ module.exports = function (app) {
     const noticiasModel = new app.app.models.NoticiasDAO(connection); // pasando a conection como parametro
 
     //! Função para salvar a imagem da notícia que deseja salvar..!!
-
-    // aiii kalicaa
-
-    console.log(noticia);
-    let formato = req.files.arquivo.name.split(".");
-    let imagem = "";
+    let formato = req.files.arquivo.name.split("."); // pega só o formato 
+    let imagem = ""; // armazenar em uma string
     if (
-      formato[formato.length - 1] == "jpg" ||
-      formato[formato.length - 1] == "png"
+      formato[formato.length - 1] == "jpg" || // se o formato for jpg
+      formato[formato.length - 1] == "png" // se o formato for png
     ) {
-      imagem = new Date().getTime() + "." + formato[formato.length - 1];
+      imagem = new Date().getTime() + "." + formato[formato.length - 1]; // nome da imagem..!!
       req.files.arquivo.mv(
-        __dirname + "../../pages/public/imagemNoticia/" + imagem
+        __dirname + "../../pages/public/imagemNoticia/" + imagem // salvar a imagem nessa pasta ai
       );
-      console.log(imagem);
     } else {
-      fs.unlinkSync(req.files.arquivo.tempFilePath);
+      fs.unlinkSync(req.files.arquivo.tempFilePath); // caso falhe
     }
 
     var img = `${req.protocol}://${req.headers.host}/imagemNoticia/${imagem}`; // salvar o cominho da imagem
@@ -66,7 +59,7 @@ module.exports = function (app) {
       } // ver se teve error no query do banco de dados
 
       // Redirecionar para a página /noticias
-      req.flash('error', 'Notícia Deletada com sucesso kkk') // mensagem de retorno
+      req.flash("error", "Notícia Deletada com sucesso kkk"); // mensagem de retorno
       res.redirect("/noticias");
     });
   });
@@ -79,12 +72,15 @@ module.exports = function (app) {
     noticiasModel.UpDateNoticia(noticia.id, noticia, (err, result) => {
       if (err) {
         console.log(err);
-        req.flash('error', 'Teve um B.O para editar essa notícia ai kk tenta novamente ;--;') // mensagem de retorno
+        req.flash(
+          "error",
+          "Teve um B.O para editar essa notícia ai kk tenta novamente ;--;"
+        ); // mensagem de retorno
         res.redirect("/noticias");
       } // ver se teve error no query do banco de dados
 
       // Redirecionar para a página /noticias
-      req.flash('error', 'Notícia atualizada com sucesso kkk') // mensagem de retorno
+      req.flash("error", "Notícia atualizada com sucesso kkk"); // mensagem de retorno
       res.redirect("/noticias");
     });
   });

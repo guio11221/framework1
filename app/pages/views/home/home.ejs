@@ -93,11 +93,21 @@ max-width: 1175px;
 height: auto;
 }
 		</style>
+		  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-dark">
 
    <%- include ('../menu/nav.ejs') %>
-
+   <% if (message !=null) { %>
+	<script>
+	  Swal.fire({
+		icon: "info",
+		title: "Resultado da solicitação..!!!",
+		text: "<%= message %>",
+		confirmButtonText: "OK",
+	  });
+	</script>
+	<% } %>
 
    <div class="content-wrapper">
 	 <div class="layout-wrapper layout-content-navbar">
