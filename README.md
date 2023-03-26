@@ -20,11 +20,9 @@ Instale com npm
 
 Entre na pasta 
 ```bash
- 
    cd framework1
 ```
 Baixe as dependencias do projeto
 ```bash
- 
    npm install
 ```
