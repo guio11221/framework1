@@ -78,12 +78,9 @@
                                             Guii Santos
                                           </td>
                                           <td>
-                                              <!-- Button trigger modal -->
-                                            <a href="/noticia?id=<%= dados[i].id_noticia %>">
-                                              <button type="button" class="btn btn-primary">
+                                              <button type="button" onclick="window.location.href='/noticia?id=<%= dados[i].id_noticia %>'" class="btn btn-primary">
                                                 Ver Notícia
                                               </button>
-                                            </a>
                                           </td>
                                       </tr>
                                       <% } %>

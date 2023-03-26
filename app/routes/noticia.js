@@ -15,7 +15,7 @@ module.exports = (app) => {
       if (result == "") {
         req.flash(
           "error",
-          "Nenhum resultado encontrado com o id: "+ id +", vai na pagina de /noticias e vê quais estão disponiveis...!!" 
+          "Nenhum resultado encontrado com o ID: "+ id 
           );
         return res.redirect(req.headers.referer);
       } else {
