@@ -30,14 +30,12 @@
                   <div class="container-xxl flex-grow-1 container-p-y">
 
               <div style="justify-content: space-between;   display: flex;">
-                <button onclick="window.history.back()"  class="btn btn-outline-success">Voltar</button>
-                  
-                 <a href="/atualizarNoticia?id=<%= noticias[0].id_noticia %>">
-                  <button onclick="" style="float: right;"  class="btn btn-outline-primary">Editar</button>
-                 </a>
-                 <a href="/noticia/deletar?id=<%= noticias[0].id_noticia%>">
-                  <button onclick="" style="float: right;"  class="btn btn-outline-danger">Excluir</button>
-                 </a>
+                 <button onclick="window.location.href='/noticias'"  class="btn btn-outline-success">Voltar</button>
+                
+                  <button onclick="window.location.href='/atualizarNoticia?id=<%= noticias[0].id_noticia %>' " style="float: right;"  class="btn btn-outline-primary">Editar</button>
+             
+                  <button onclick="window.location.href='/noticia/deletar?id=<%= noticias[0].id_noticia%>'"  style="float: right;"  class="btn btn-outline-danger">Excluir</button>
+
                    </div>
                       <div class="row"> 
                           <div class="container-xxl flex-grow-1 container-p-y">
