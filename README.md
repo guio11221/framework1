@@ -12,7 +12,7 @@ A criação de um servidor em Node.js e usar outras tecnologias como o nodemon e
 
 ## Instalação
 
-Instale com npm
+Clone o projeto
 
 ```bash
   git remote add origin https://github.com/guio11221/framework1.git
@@ -25,4 +25,8 @@ Entre na pasta
 Baixe as dependencias do projeto
 ```bash
    npm install
+```
+Rode o projeto
+```bash
+   npm rum dev
 ```
