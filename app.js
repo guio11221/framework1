@@ -1,5 +1,5 @@
 const app = require('./config/server.js');
-const  dataExpress  = require('./config/config')
+const { dataExpress }  = require('./config/config')
 
 /**
  * 
@@ -7,7 +7,5 @@ const  dataExpress  = require('./config/config')
  */
 
 
-
-app.listen(3000, function(){ 
-	console.log('Servidor rodando com Express');
-});
+// Configuração da porta do servidor
+app.listen(dataExpress.PORT, () => console.log("Servidor rodando na porta " + dataExpress.PORT));

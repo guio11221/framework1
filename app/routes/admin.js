@@ -14,7 +14,7 @@ module.exports = function (app) {
   });
   app.post("/noticia/salvar", (req, res) => {
     var noticia = req.body;
-
+   const fs = require('fs')
     const connection = app.config.dbConnection(); // pegando a conexão com o banco
     const noticiasModel = new app.app.models.NoticiasDAO(connection); // pasando a conection como parametro
 
