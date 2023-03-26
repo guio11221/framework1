@@ -13,9 +13,7 @@ const connMySQL = () => {
   // verifiicando a conexão com o banco de dados
   connection.connect((err) => {
     // verificando a connection com o banco de dados.
-    if (err) {
-      return console.log;
-    } // se tiver error, mostra no console.
+    if (err) { return console.log(err) } // se tiver error, mostra no console.
 
     return console.log(`Conectado com o Banco de dados`); // se ocorrer tudo bem, mostra essa mensagem no console.
   });
