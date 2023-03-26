@@ -4,7 +4,7 @@ module.exports = function (app) {
     const connection = app.config.dbConnection(); // pegando a conexão com o banco
     const noticiasModel = new app.app.models.NoticiasDAO(connection); // pasando a conection como parametro
 
-    noticiasModel.getNoticias(connection, (err, result) => {
+    noticiasModel.getNoticias( (err, result) => {
      if (err) { console.log(err) } // ver se teve error no query do banco de dados
 
       res.render("admin/form_add_noticia.ejs", { dados: result });
@@ -16,7 +16,7 @@ module.exports = function (app) {
     const connection = app.config.dbConnection(); // pegando a conexão com o banco
     const noticiasModel = new app.app.models.NoticiasDAO(connection); // pasando a conection como parametro
 
-    noticiasModel.SalvarNoticia(noticia, pool, (err, result) => {
+    noticiasModel.SalvarNoticia(noticia, (err, result) => {
      if (err) { console.log(err) } // ver se teve error no query do banco de dados
 
       res.redirect("/noticias");
@@ -31,7 +31,7 @@ module.exports = function (app) {
     const connection = app.config.dbConnection(); // pegando a conexão com o banco
     const noticiasModel = new app.app.models.NoticiasDAO(connection); // pasando a conection como parametro
 
-    noticiasModel.ApagarNoticia(id, pool, (err, result) => {
+    noticiasModel.ApagarNoticia(id, (err, result) => {
      if (err) { console.log(err) } // ver se teve error no query do banco de dados
 
       // Redirecionar para a página /noticias

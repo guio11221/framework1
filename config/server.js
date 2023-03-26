@@ -39,7 +39,7 @@ app.use("*", (req, res, next) => {
 
 // Configuração da porta do servidor
 app.listen(3001, function () {
-  console.log("Server running on port " + 3000);
+  console.log("Server running on port " + 3001);
 });
 
 // Exportando o app
