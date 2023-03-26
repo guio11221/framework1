@@ -34,7 +34,8 @@
                               <div class="col-md-12">
                                 <div class="tab-content">
                                   <div class="tab-pane fade show active profile-overview" id="profile-overview">
-
+                                    <button onmouseover="window.location.href='/noticia/?id=<%= noticias[0].id_noticia %>'"  class="btn btn-outline-success">Voltar</button>
+                                    <br><br>
                                 <form class="needs-validation" action="/atualizarNoticia" method="post" novalidate>
                                         <div class="card mb-4">
                                          <div class="card-body">

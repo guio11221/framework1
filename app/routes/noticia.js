@@ -9,7 +9,7 @@ module.exports = (app) => {
       if (err) { console.log(err) } 
 
        var errorMessage = req.flash('error')
-       console.log(errorMessage)
+
       res.render("noticias/noticia", { noticias: result,  message: errorMessage.length > 0 ? errorMessage[0] : null  }); // render a pagina ejs para mostrar a noticia
     });
   });
@@ -32,7 +32,7 @@ module.exports = (app) => {
     const connection = app.config.dbConnection(); // pegando a conexão com o banco
     const noticiasModel = new app.app.models.NoticiasDAO(connection); // pasando a conection como parametro
 
-     console.log(noticia)
+
     noticiasModel.UpDateNoticia(noticia, (err, result) => {
       if (err) {
         console.log(err);
