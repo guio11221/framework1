@@ -1,9 +1,9 @@
-var app = require('./config/server.js');
-
+const app = require('./config/server.js');
+const  dataExpress  = require('./config/config')
 
 /**
  * 
- * @author Guii Santos :) <@async({*})>  
+ * @author Guii Santos :)  
  */
 
 

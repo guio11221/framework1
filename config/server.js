@@ -8,8 +8,8 @@ var app = express(); // criando o servidor com o express
 
 /** Configuração do ejs */
 app.set('view engine', 'ejs'); // definindo a engine de visualização para ejs
-app.set("views", path.join(__dirname, "../app/views")); // definindo o diretório das views
-app.use(express.static(path.join(__dirname, "../app/public"))) // definindo o diretório dos arquivos estáticos
+app.set("views", path.join(__dirname, "../app/pages/views")); // definindo o diretório das views
+app.use(express.static(path.join(__dirname, "../app/pages/public"))) // definindo o diretório dos arquivos estáticos
 
 app.use(express.json()); // habilitando o middleware de parsing de json
 app.use(express.urlencoded({ extended: true })); // habilitando o middleware de parsing de urlencoded
@@ -28,6 +28,7 @@ consign()
 .then('config/dbConnection.js') // incluindo a conexão com o banco de dados
 .into(app); // adicionando as rotas, modelos e conexão ao app express
 
+
 // middleware para lidar com rotas não encontradas
 app.use('*', (req, res, next) => {
 res.status(404).send('Que que tu ta tentando entrar ai meu chapa')
@@ -35,7 +36,7 @@ next()
 });
 
 // Configuração da porta do servidor
-app.listen(3000, function () {
+app.listen(3001, function () {
 console.log('Server running on port ' + 3000);
 });
 

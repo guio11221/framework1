@@ -1,17 +1,18 @@
-// dados que sera usado pra armazenar dados sigilosos..!!
+// dados que será usado pra armazenar dados sigilosos..!!
 
 const dataMysql = {
+  host: "localhost", // local que o banco esta, no caso é local "Na nossa máquina"
+  user: "root", // user
+  password: "", // local
+  database: "portal_noticias", // nome do banco que esta as tabelas..!!
+};
 
-    host: 'localhost', // local
-    user: 'root', // user
-    password: '', // local
-    // password: 'ifms', // banco da escola
-    database: 'portal_noticias'
-}
-
-/**
- * @author Eu só queria passar de ano sem fazer prova :( 
- */
+const dataExpress = {
+  PORT: 3000 || process.env.PORT, // porta do servidor que sera rodado nossa aplicação
+};
 
 // exportando as variaveis
-exports.dataMysql = dataMysql
+module.exports = {
+  dataExpress: dataExpress,
+  dataMysql: dataMysql,
+};
