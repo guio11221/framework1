@@ -28,40 +28,28 @@
           <div class="layout-container">
               <div class="content-wrapper">
                   <div class="container-xxl flex-grow-1 container-p-y">
-
-              <div style="justify-content: space-between;   display: flex;">
-                <button onclick="window.history.back()"  class="btn btn-outline-success">Voltar</button>
-                  
-                 <a href="/atualizarNoticia?id=<%= noticias[0].id_noticia %>">
-                  <button onclick="" style="float: right;"  class="btn btn-outline-primary">Editar</button>
-                 </a>
-                 <a href="/noticia/deletar?id=<%= noticias[0].id_noticia%>">
-                  <button onclick="" style="float: right;"  class="btn btn-outline-danger">Excluir</button>
-                 </a>
-                   </div>
                       <div class="row"> 
                           <div class="container-xxl flex-grow-1 container-p-y">
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="tab-content">
                                   <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                     <div class="card mb-4">
-                            
-                                      <div class="card-body">  
-                                       <center>
-                                         <img src="<%= noticias[0].img %>" alt="user-avatar" class="d-block rounded"
-                                           id="uploadedAvatar" width="80%" />  
-                                       </center>
-                                      </div>
-                                      <hr class="my-0" />
-                                      <div class="card-body">
-                                   <center>  <h1>  <%= noticias[0].titulo %></h1></center>
-                
-                                    <p style="color: black;"> <%= noticias[0].noticia %></p>
+
+                                <form class="needs-validation" action="/atualizarNoticia" method="post" novalidate>
+                                        <div class="card mb-4">
+                                         <div class="card-body">
+                                            <input type="hidden" name="id" value="<%= noticias[0].id_noticia%>">
+                                          <input class="form-control" name="titulo" value=" <%= noticias[0].titulo %>" placeholder="Por o titulo da notícia...!!" required> 
+                                          <br>
+                                         <textarea class="form-control" name="noticia" rows="20" cols="50" required><%= noticias[0].noticia %></textarea>
+                                         <br>
+                                         <button type="submit" class="btn btn-primary" style="float: right;">Salvar</button>
+                                         
                                         </div>
-                
-                                      </div>
-                           
+                                        
+                                    </div>
+                                </form>
+
                                     </div>
                                   </div>
                                 </div>
@@ -78,21 +66,47 @@
 
 
 
-  <span id="sei_la"></span>
-
   
+<script>
+    var forms = document.getElementsByClassName('needs-validation');
+var validation = Array.prototype.filter.call(forms, function (form) {
+  form.addEventListener('submit', function (event) {
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
 
-  <script src="../noticia/index.js"></script>
+      Swal.fire({
+        icon: 'error',
+        title: 'Falha ao enviar',
+        text: 'Algum campo do formulario esta incompleto...!!',
+        confirmButtonText: 'OK'
+      });
+
+    } else {
+      event.preventDefault();
+      Swal.fire({
+        icon: 'success',
+        title: 'Validação bem sucedida!',
+        text: 'Seus dados foram enviados com sucesso.',
+        confirmButtonText: 'OK'
+      });
+      form.submit(); // aqui estava forms.submit(), deve ser form.submit()
+    }
+    form.classList.add('was-validated');
+  }, false);
+});
+
+</script>
   <script src="../assets/vendor/libs/jquery/jquery.js"></script>
   <script src="../assets/vendor/libs/popper/popper.js"></script>
   <script src="../assets/vendor/js/bootstrap.js"></script>
   <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="../assets/vendor/js/menu.js"></script>
   <script src="../noticia/index.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
   <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" ></script>

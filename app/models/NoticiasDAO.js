@@ -29,10 +29,10 @@ NoticiasDAO.prototype.ApagarNoticia = function (id, callback) {
 };
 
 // Criação do método UpDateNoticia na propriedade prototype do objeto NoticiasDAO
-NoticiasDAO.prototype.UpDateNoticia = function (id, noticia, callback) {
+NoticiasDAO.prototype.UpDateNoticia = function (noticia, callback) {
   // Utilização do método query da conexão com o banco de dados para atualizar a notícia com o id especificado e chamar a função callback com os resultados
   this._connection.query(`UPDATE noticias SET titulo = ?, noticia = ?  WHERE id_noticia = ?`,
-    [noticia.titulo, noticia.noticia, id], callback);
+    [noticia.titulo, noticia.noticia, noticia.id], callback);
 };
 
 // Exportação da função construtora NoticiasDAO como um módulo Node.js

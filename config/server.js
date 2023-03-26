@@ -42,7 +42,7 @@ consign()
 
 // middleware para lidar com rotas não encontradas
 app.use("*", (req, res, next) => {
-  res.status(404).send("Que que tu ta tentando entrar ai meu chapa");
+  res.status(404).render('404.ejs');
   next();
 });
 

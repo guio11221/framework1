@@ -3,6 +3,7 @@
 function modalEdit(id, titulo, noticia) {
   var sei_la = document.getElementById("sei_la");
 
+  if (sei_la) {
   html = `  
   <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
   <div class="modal-dialog">
@@ -34,6 +35,9 @@ function modalEdit(id, titulo, noticia) {
   </div>
 </div>
 `;
+  } else {
+    console.error("Element with id 'sei_la' not found!");
+  }
 
   sei_la.innerHTML = html;
 }

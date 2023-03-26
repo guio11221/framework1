@@ -1,4 +1,4 @@
-module.exports = function (app) {
+module.exports = function (app) { // exportando 
   app.get("/", async function (req, res) {
     const connection = app.config.dbConnection(); // pegando a conection do banco de dados
     const noticiasModel = new app.app.models.NoticiasDAO(connection); // passando a connection com o banco por paramentro na função
