@@ -26,3 +26,7 @@ Baixe as dependencias do projeto
 ```bash
    npm install
 ```
+Rode o projeto
+```bash
+   npm rum dev
+```
