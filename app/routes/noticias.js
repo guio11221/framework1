@@ -5,8 +5,9 @@ module.exports = function (app) {
 
     noticiasModel.getNoticias((err, result) => {
 		if (err) { console.log(err) } // ver se teve error no query do banco de dados
-
-        res.render("noticias/noticias", { dados: result, message: "oi" });
+      
+    var errorMessage = req.flash('error')
+        res.render("noticias/noticias", { dados: result,  message: errorMessage.length > 0 ? errorMessage[0] : null  });
     });
   });
 };

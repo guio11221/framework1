@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="../assets/css/demo.css" />
 	<link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<title>Portal de notícias</title>
 </head>
 <body class="bg-dark">
@@ -26,8 +27,17 @@
 	<%- include ('../menu/nav.ejs') %>
 
 
-
-		<form class="needs-validation" id="form-id" action="/noticia/salvar" method="post"  novalidate>
+	<% if (message !=null) { %>
+		<script>
+		  Swal.fire({
+			icon: "info",
+			title: "Resultado da solicitação..!!!",
+			text: "<%= message %>",
+			confirmButtonText: "OK",
+		  });
+		</script>
+		<% } %>
+		<form class="needs-validation" id="form-id" action="/noticia/salvar" method="post" enctype="multipart/form-data" novalidate>
 
 		  <div class="modal-dialog" role="document"> 
 			<div class="modal-content">
@@ -54,7 +64,7 @@
 					  <br>
 					</div>
 					<div class="custom-file">
-						<input name="arquivo" type="file" class="custom-file-input"  id="validatedCustomFile" multiple>
+						<input  name="arquivo" type="file" class="custom-file-input"  id="validatedCustomFile" multiple>
 						<label class="custom-file-label" for="validatedCustomFile">Escolher arquivo...</label>
 						<div class="invalid-feedback">Tá, cadê a imagem meu chapa?</div>
 					  </div>

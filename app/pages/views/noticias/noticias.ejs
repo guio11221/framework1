@@ -20,12 +20,23 @@
      <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
      <script src="../assets/vendor/js/helpers.js"></script>
      <script src="../assets/js/config.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <title>Portal de notícias</title>
   </head>
   <body class="bg-dark">
     <%- include ('../menu/nav.ejs') %>
   
+    <% if (message !=null) { %>
+      <script>
+        Swal.fire({
+        icon: "info",
+        title: "Resultado da solicitação..!!!",
+        text: "<%= message %>",
+        confirmButtonText: "OK",
+        });
+      </script>
+      <% } %>
 
     <div class="content-wrapper">
       <div class="layout-wrapper layout-content-navbar">

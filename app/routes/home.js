@@ -8,8 +8,9 @@ module.exports = function (app) {
       if (err) {
         console.log(err);
       } // ver se teve error no query do banco de dados
-
-      res.render("home/home.ejs", { dados: result });
+      
+      var errorMessage = req.flash('error')
+      res.render("home/home.ejs", { dados: result,  message: errorMessage.length > 0 ? errorMessage[0] : null  });
     });
   });
 };

@@ -8,7 +8,7 @@ const dataMysql = {
 };
 
 const dataExpress = {
-  PORT: 3000 || process.env.PORT, // porta do servidor que sera rodado nossa aplicação
+  PORT:  process.env.PORT || 3001 || 3000 || 5000 || 8000 || 8080 || 9000 , // porta do servidor que sera rodado nossa aplicação
 };
 
 // exportando as variaveis

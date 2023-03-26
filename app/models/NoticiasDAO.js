@@ -17,9 +17,9 @@ NoticiasDAO.prototype.getNoticia = function (id, callback) {
 };
 
 // Criação do método SalvarNoticia na propriedade prototype do objeto NoticiasDAO
-NoticiasDAO.prototype.SalvarNoticia = function (noticia, callback) {
+NoticiasDAO.prototype.SalvarNoticia = function (noticia,imgLink, callback) {
   // Utilização do método query da conexão com o banco de dados para inserir uma nova notícia e chamar a função callback com os resultados
-  this._connection.query(`INSERT INTO noticias (titulo, noticia) values (?,?)`, [noticia.titulo, noticia.noticia], callback);
+  this._connection.query(`INSERT INTO noticias (titulo, noticia, img) values (?,?,?)`,[noticia.titulo, noticia.noticia, imgLink], callback);
 };
 
 // Criação do método ApagarNoticia na propriedade prototype do objeto NoticiasDAO

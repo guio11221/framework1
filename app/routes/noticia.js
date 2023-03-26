@@ -6,11 +6,10 @@ module.exports = (app) => {
 
     // pegando um noticia com o id informado na query
     noticiasModel.getNoticia(id, (err, result) => {
-      if (err) {
-        console.log(err);
-      } // ver se teve error no query do banco de dados
+      if (err) { console.log(err) } 
 
-      res.render("noticias/noticia", { noticias: result }); // render a pagina ejs para mostrar a noticia
+       var errorMessage = req.flash('error')
+      res.render("noticias/noticia", { noticias: result,  message: errorMessage.length > 0 ? errorMessage[0] : null  }); // render a pagina ejs para mostrar a noticia
     });
   });
 };
