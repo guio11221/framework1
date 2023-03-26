@@ -9,6 +9,7 @@ module.exports = (app) => {
       if (err) { console.log(err) } 
 
        var errorMessage = req.flash('error')
+       console.log(errorMessage)
       res.render("noticias/noticia", { noticias: result,  message: errorMessage.length > 0 ? errorMessage[0] : null  }); // render a pagina ejs para mostrar a noticia
     });
   });
