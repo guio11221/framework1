@@ -5,7 +5,15 @@
    conn = connection; // variavel que contem a conection do banco de dados mysql
 
   // Criação do método getNoticias na propriedade prototype do objeto NoticiasDAO
-
+  /**
+   * 
+   * @param {function} callback 
+   * @param {number} id
+   * @param {String} noticia
+   * @param {Link} imgLink
+   * @param {String} noticia
+   * 
+   */
   this.getNoticias = function (callback) {
     // Utilização do método query da conexão com o banco de dados para buscar todas as notícias e chamar a função callback com os resultados
     conn.query("SELECT * FROM noticias", callback);
