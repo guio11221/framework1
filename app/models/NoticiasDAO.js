@@ -1,19 +1,9 @@
 // Declaração da função construtora NoticiasDAO que recebe a conexão com o banco de dados
  function NoticiasDAO(connection) {
 
-  
    conn = connection; // variavel que contem a conection do banco de dados mysql
 
   // Criação do método getNoticias na propriedade prototype do objeto NoticiasDAO
-  /**
-   * 
-   * @param {function} callback 
-   * @param {number} id
-   * @param {String} noticia
-   * @param {Link} imgLink
-   * @param {String} noticia
-   * 
-   */
   this.getNoticias = function (callback) {
     // Utilização do método query da conexão com o banco de dados para buscar todas as notícias e chamar a função callback com os resultados
     conn.query("SELECT * FROM noticias", callback);
@@ -45,4 +35,4 @@
 }
 
 // Exportação da função construtora NoticiasDAO como um módulo Node.js
-module.exports = Object.freeze(NoticiasDAO) // não pode alterar a função kk 
+module.exports = NoticiasDAO // não pode alterar a função kk 
