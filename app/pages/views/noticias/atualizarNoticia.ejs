@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="../assets/css/demo.css" />
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
       <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
-      <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-      <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
      <title>Portal de notícias</title>
   </head>
   <body style="background-color: black;">
@@ -41,57 +39,10 @@
                                 <form class="needs-validation" action="/atualizarNoticia" method="post" novalidate>
                                         <div class="card mb-4">
                                          <div class="card-body">
-
-
-                                    
-                                          
-                                             <input type="hidden" name="id" value="<%= noticias[0].id_noticia%>">
-                                              <input class="form-control" name="titulo" value=" <%= noticias[0].titulo %>" placeholder="Por o titulo da notícia...!!" required> 
-                                              <br>
-                                             <!-- Adicionar um elemento para o editor -->
-                                            <div id="editor"><%= noticias[0].noticia %></div>
-                                                                                    
-                                            <!-- Adicionar um textarea com o mesmo id para receber o valor do editor -->
-                                            <textarea class="form-control" style="display: none;" id="noticia" name="noticia" rows="20" cols="50" required><%= noticias[0].noticia %></textarea>
-
-                                                                                    
-                                            <script>
-                                              // Selecionar o elemento do textarea
-                                              var editor= document.getElementById('editor');
-                                              var noticia = document.getElementById('noticia')
-                                            
-                                              // Inicializar o Quill
-                                              var quill = new Quill(editor, {
-
-                                                modules: {
-                                                  toolbar: [
-                                                    ['bold', 'italic', 'underline', 'strike'],    // Adicionar botões para negrito, itálico, sublinhado e tachado
-                                                    ['blockquote', 'code-block'],                 // Adicionar botões para citação e código
-                                                    [{ 'header': 1 }, { 'header': 2 }],            // Adicionar botões para títulos
-                                                    [{ 'list': 'ordered' }, { 'list': 'bullet' }], // Adicionar botões para listas ordenadas e não ordenadas
-                                                    [{ 'script': 'sub' }, { 'script': 'super' }],  // Adicionar botões para subscrito e sobrescrito
-                                                    [{ 'indent': '-1' }, { 'indent': '+1' }],      // Adicionar botões para recuar e avançar
-                                                    [{ 'direction': 'rtl' }],                     // Adicionar botão para alinhar à direita
-                                                    [{ 'size': ['small', false, 'large', 'huge'] }],// Adicionar botões para tamanho da fonte
-                                                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],      // Adicionar botões para tamanho do cabeçalho
-                                                    [{ 'color': [] }, { 'background': [] }],       // Adicionar botões para cor do texto e de fundo
-                                                    [{ 'font': [] }],                              // Adicionar botões para seleção de fonte
-                                                    [{ 'align': [] }],                             // Adicionar botões para alinhamento
-                                                    ['clean'],                                     // Adicionar botão para limpar formatação
-                                                  ]
-                                                },
-                                                placeholder: 'Escreva aqui sua notícia...',
-                                                theme: 'snow'
-                                              });
-                                            
-                                              // Atualizar o valor do textarea com o conteúdo do editor
-                                              quill.on('text-change', function() {
-                                                noticia.value = quill.root.innerHTML;
-                                              });
-                                            </script>
-                                            
-                                          
-
+                                            <input type="hidden" name="id" value="<%= noticias[0].id_noticia%>">
+                                          <input class="form-control" name="titulo" value=" <%= noticias[0].titulo %>" placeholder="Por o titulo da notícia...!!" required> 
+                                          <br>
+                                         <textarea class="form-control" name="noticia" rows="20" cols="50" required><%= noticias[0].noticia %></textarea>
                                          <br>
                                          <button type="submit" class="btn btn-primary" style="float: right;">Salvar</button>
                                          
