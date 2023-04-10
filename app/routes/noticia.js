@@ -24,17 +24,6 @@ module.exports = (app) => {
     });
   });
 
-  app.get("/atualizarNoticia", (req, res) => {
-    const { id } = req.query;
-    const pool = app.config.dbConnection();
-    const noticiasModel = new NoticiasDAO(pool);
-
-    noticiasModel.getNoticia(id, (err, result) => {
-      if (err) return console.log(err)
-
-      res.render("noticias/atualizarNoticia.ejs", { noticias: result });
-    });
-  });
 
   app.post("/atualizarNoticia", (req, res) => {
     var noticia = req.body; // dados do formulário

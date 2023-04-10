@@ -39,7 +39,7 @@ img {
       </style>
      <title>Portal de notícias</title>
   </head>
-  <body style="background-color: black;">
+  <body >
     <%- include ('../menu/nav.ejs') %>
   
     <% if (message !=null) { %>
@@ -57,14 +57,21 @@ img {
           <div class="layout-container">
               <div class="content-wrapper">
                   <div class="container-xxl flex-grow-1 container-p-y">
-
               <div style="justify-content: space-between;   display: flex;">
-                 <button onclick="window.location.href='/noticias'"  class="btn btn-outline-success">Voltar</button>
-                
-                  <button onclick="window.location.href='/atualizarNoticia?id=<%= noticias[0].id_noticia %>' " style="float: right;"  class="btn btn-outline-primary">Editar</button>
-             
-                  <button onclick="window.location.href='/noticia/deletar?id=<%= noticias[0].id_noticia%>'"  style="float: right;"  class="btn btn-outline-danger">Excluir</button>
-
+                     <ul class="nav">
+                       <li class="nav-item">
+                         <button onclick="window.location.href='/noticias'"  class="btn btn-outline-success nav-link">Voltar</button>
+                         &nbsp;  &nbsp; 
+                       </li>
+                        <li class="nav-item">
+                          &nbsp;  &nbsp; 
+                        <button type="button"    class="btn btn-outline-primary nav-link" style="float: right;"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Atualizar</button>
+                       </li>
+                       <li class="nav-item">
+                         &nbsp;  &nbsp; 
+                         <button  onclick="window.location.href='/noticia/deletar?id=<%= noticias[0].id_noticia%>'"  style="float: right;"  class="btn btn-outline-danger nav-link">Excluir</button>
+                       </li>
+                     </ul>
                    </div>
                       <div class="row"> 
                           <div class="container-xxl flex-grow-1 container-p-y">
@@ -73,37 +80,58 @@ img {
                                 <div class="tab-content">
                                   <div class="tab-pane fade show active profile-overview" id="profile-overview">
                                      <div class="card mb-4">
-                                      <div class="card-body">
+                                        <div class="card-body">
 
                                         <img src="<%= noticias[0].img %>" style="height: 60vh;" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
                                         <h1 class="text-center">  <%= noticias[0].titulo %></h1>
                                         <%- noticias[0].noticia %>
 
-                                      </div>
-                                                         
+                                         </div>           
                                         </div>
-                
                                       </div>
-                           
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-
                       </div>
                   </div>
               </div>
           </div>
       </div>
   </div>
-
-
-
   <span id="sei_la"></span>
 
-  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Salvar notícia: <%- noticias[0].id_noticia%></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" action="/atualizarNoticia" method="post" novalidate>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Titulo:</label>
+              <input type="text" name="titulo" class="form-control" value="<%= noticias[0].titulo%>">
+            </div>
+            <input type="hidden" name="id" value="<%= noticias[0].id_noticia%>">
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Notícia:</label>
+              <textarea class="form-control" name="noticia" rows="10" cols="20" required><%= noticias[0].noticia %></textarea>
+            </div>
+
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
 
   <script src="../noticia/index.js"></script>
   <script src="../assets/vendor/libs/jquery/jquery.js"></script>

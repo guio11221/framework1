@@ -24,7 +24,7 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <title>Portal de notícias</title>
   </head>
-  <body style="background-color: black;">
+  <body>
     <%- include ('../menu/nav.ejs') %>
   
     <% if (message !=null) { %>
@@ -50,7 +50,7 @@
                               <table id="table" data-toggle="table" data-pagination="true" data-search="true" showColumns="true" showRefresh="true">
                                   <thead>
                                       <tr>
-                                          <th data-field="id">id</th>
+                                          <th data-field="id" >id</th>
                                           <th data-field="titulo">Titulo</th>
                                           <th data-field="noticia">Noticia</th>
                                           <th data-field="criador">Criador </th>
@@ -65,16 +65,16 @@
                                   <tbody style="color: aliceblue;">
                                       <% for(var i=0; i < dados.length; i++){ %>
                                       <tr>
-                                          <td>
-                                              <%= dados[i].id_noticia %>
+                                          <td style="color: black;">
+                                              <%= i+1 %>
                                           </td>
-                                          <td>
+                                          <td style="color: black;">
                                               <%= dados[i].titulo %>
                                           </td>
-                                          <td>
+                                          <td style="color: black;"> 
                                             <%= dados[i].noticia.slice(0, 85) + "..." %>
                                           </td>
-                                          <td>
+                                          <td style="color: black;">
                                             Guii Santos
                                           </td>
                                           <td>
