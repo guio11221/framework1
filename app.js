@@ -1,9 +1,13 @@
 const app = require("./config/server.js"); // importando a configuração do express.
-const { dataExpress } = require("./config/config"); // Algumas variaveis que eu posso usar em todo o codigo
+const PORT = 3000
+const HOST = 'localhost'
 
+/**
+ * 
+ * @param {import("ejs").AsyncClientFunction} 
+ * 
+ */
 
 
 // iniciando o servidor na porta que foi definida..!!
-app.listen(dataExpress.PORT, () =>
-    console.log(`Servidor rodando na porta ${dataExpress.PORT}`)
-);
+app.listen(PORT, () =>  console.log(`Servidor rodando no http://${HOST}:%d/`, PORT));

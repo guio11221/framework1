@@ -1,13 +1,12 @@
 const mysql = require("mysql"); // importando o modulo do myysql.
-const { dataMysql } = require("./config"); // importando as config do mysql.
 
 const connMySQL = () => {
   // criando a conexão com o banco de dados.
   var connection = mysql.createConnection({
-    host: dataMysql.host,
-    user: dataMysql.user,
-    password: dataMysql.password,
-    database: dataMysql.database,
+    host: "localhost", // local que o banco esta, no caso é local "Na nossa máquina"
+    user: "root", // user
+    password: "", // Senha do banco 
+    database: "portal_noticias", // nome do banco que esta as tabelas..!!
   });
 
   // verifiicando a conexão com o banco de dados

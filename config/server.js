@@ -7,7 +7,6 @@ const fs = require("fs"); // importando o módulo de lidar com arquivos do siste
 var flash = require('connect-flash') // para enviar mensagem para o front end sobre o status da solicitação
 const session = require('express-session'); // Criar um session com o express
 var app = express(); // criando o servidor com o express
-const { dataExpress } = require('./config')
 
 /** Configuração */
 app.set("view engine", "ejs"); // definindo a engine de visualização para ejs

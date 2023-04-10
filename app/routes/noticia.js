@@ -26,7 +26,6 @@ module.exports = (app) => {
 
   app.get("/atualizarNoticia", (req, res) => {
     const { id } = req.query;
-
     const pool = app.config.dbConnection();
     const noticiasModel = new NoticiasDAO(pool);
 
@@ -39,6 +38,9 @@ module.exports = (app) => {
 
   app.post("/atualizarNoticia", (req, res) => {
     var noticia = req.body; // dados do formulário
+
+    console.log(noticia)
+
     const connection = app.config.dbConnection(); // pegando a conexão com o banco
     const noticiasModel = new NoticiasDAO(connection); // pasando a conection como parametro
 
