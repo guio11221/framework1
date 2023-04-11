@@ -1,8 +1,8 @@
-<%# Esse menu correspode a o menu de todas as páginas %>
+<nav class="navbar navbar-expand-lg navbar bg-light"   >
+  
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Guii Santos </a>
 
-
-<nav class="navbar navbar-expand-lg" >
-  <a class="navbar-brand" href="#">Guii Santos</a> 
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,20 +11,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Páginas
+
+        <a class="nav-link" href="#" id="menu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Clica Aqui Para Ver O Menu
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/">Home</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/noticias">Noticias</a>
-          <a class="dropdown-item" href="noticia?id=1">Noticia</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/formulario_inclusao_noticia">Formulário</a>
-        </div>
-      </li>
+      
     </ul>
 
     <form id="search-form" action="/noticia" method="get" class="form-inline my-2 my-lg-0">
@@ -35,3 +26,27 @@
     </form>
   </div>
 </nav>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">MENUZINHO</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+          <a class="dropdown-item" href="/">Home</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/noticias">Noticias</a>
+          <a class="dropdown-item" href="noticia?id=1">Noticia</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/formulario_inclusao_noticia">Formulário</a>
+      
+      </div>
+    </div>
+  </div>
+</div>
