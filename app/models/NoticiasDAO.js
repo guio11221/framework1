@@ -13,11 +13,11 @@ function NoticiasDAO(connection) {
     conn.query("SELECT * from noticias WHERE id_noticia = ?", [id], callback);
   };
   // Criação do método SalvarNoticia na propriedade prototype do objeto NoticiasDAO
-  this.SalvarNoticia = function (noticia, imgLink, callback) {
+  this.SalvarNoticia = function (noticia, callback) {
     // Utilização do método query da conexão com o banco de dados para inserir uma nova notícia e chamar a função callback com os resultados
     conn.query(
-      `INSERT INTO noticias (titulo, noticia, img) values (?,?,?)`,
-      [noticia.titulo, noticia.noticia, imgLink],
+      `INSERT INTO noticias (titulo, noticia) values (?,?)`,
+      [noticia.titulo, noticia.noticia],
       callback
     );
   };

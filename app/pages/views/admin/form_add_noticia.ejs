@@ -38,65 +38,80 @@
 		  });
 		</script>
 		<% } %>
-		<form class="needs-validation" id="form-id" action="/noticia/salvar" method="post" enctype="multipart/form-data" novalidate>
-
-		  <div class="modal-dialog" role="document"> 
-			<div class="modal-content">
-			  <div class="modal-header">
-				<h5 class="modal-title"> Salvar Uma Notícia kkkk</h5>
+		
+	
+	<form
+	class="needs-validation"
+	id="form-id"
+	action="/noticia/salvar"
+	method="post"
+	enctype="multipart/form-data"
+	novalidate
+	 >
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title">Salvar Uma Notícia kkkk</h5>
+		</div>
+  
+		<div class="modal-body">
+		  <div class="row g-2">
+			<div class="col mb-1">
+			  <label for="dobBasic" class="form-label">Titulo:</label>
+			  <input
+				type="text"
+				name="titulo"
+				placeholder="Titulo da notícia"
+				autocomplete="off"
+				class="form-control"
+				required
+			  />
+			  <div class="invalid-feedback">
+				Você deve por um titulo kkk não sou vidente para saber que
+				notícia é essa ;--;.
 			  </div>
-
-			  <div class="modal-body">
-				<div class="row g-2">
-				  <div class="col mb-1">
-					<label for="dobBasic" class="form-label">Titulo:</label>
-					<input type="text" name="titulo" placeholder="Titulo da notícia" autocomplete="off" class="form-control" required>
-					<div class="invalid-feedback">
-						Você deve por um titulo kkk não sou vidente para saber que notícia é essa ;--;.
-					  </div>
-				  </div>
-				  <div>
-					<div class="col mb-0">
-					  <label for="dobBasic" class="form-label">Notícia:</label>
-					  <textarea class="form-control" placeholder="Do que se trata a notícia?" autocomplete="off" name="noticia" id="textArea2" rows="2" required></textarea>
-					  <div class="invalid-feedback">
-						Você deve Escrever alguma coisa né meu chapa kskkssz.
-					  </div>
-					  <br>
-					</div>
-					<div class="custom-file">
-						<input  name="arquivo" type="file" class="custom-file-input"  id="validatedCustomFile" required multiple>
-						<label class="custom-file-label" for="validatedCustomFile">Escolher arquivo...</label>
-						<div class="invalid-feedback">Tá, cadê a imagem meu chapa?</div>
-					  </div>
-				  </div>
-				  
-				  <div class="form-group">
-					<br>
-					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required>
-					  <label class="form-check-label" for="invalidCheck3">
-						Concordo com os termos e condições
-					  </label>
-					  <div class="invalid-feedback">
-						Você deve concordar em ser cálvo
-					  </div>
-					</div>
-				  </div>
-				</div>
-				</div>
-				<div class="modal-footer ">
-				  <button type="submit" class="btn btn-outline-dark" id="proximo">Salvar
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-					  class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
-					  <path fill-rule="evenodd"
-						d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-					</svg></button>
-				</div>
-			  </div>
-
 			</div>
-		</form>
+			<div>
+			  <div class="col mb-0">
+				<label for="dobBasic" class="form-label">Notícia:</label>
+				<textarea
+				  class="form-control"
+				  placeholder="Do que se trata a notícia?"
+				  autocomplete="off"
+				  name="noticia"
+				  id="textArea2"
+				  rows="2"
+				  required
+				></textarea>
+				<div class="invalid-feedback">
+				  Você deve Escrever alguma coisa né meu chapa kskkssz.
+				</div>
+				<br />
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="modal-footer">
+		  <button type="submit" class="btn btn-outline-dark" id="proximo">
+			Salvar
+			<svg
+			  xmlns="http://www.w3.org/2000/svg"
+			  width="16"
+			  height="16"
+			  fill="currentColor"
+			  class="bi bi-arrow-right-circle"
+			  viewBox="0 0 16 16"
+			>
+			  <path
+				fill-rule="evenodd"
+				d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+			  />
+			</svg>
+		  </button>
+		</div>
+	  </div>
+	</div>
+</form>
 
 	
 

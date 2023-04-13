@@ -72,43 +72,17 @@ img {
 			 </center>
 
 			
-<center>
-	<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-		Abrir Noticias
-	   </button>
-</center>
+		<center>
+			<br><br><br>
+                 <a class="nav-link" href="#" id="menu" data-bs-toggle="modal" data-bs-target="#exampleModalMenu">
+		        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+		        	Abrir Menu
+				</button>
+	            </a>
+    	</center>
 			 
-<br>
-			  <div style="">
-				<div class="collapse" id="collapseWidthExample">
-			
 
-					  <% for(var i=0; i < dados.length; i++){ %>
-						<div class="row g-0 bg-light position-relative">
-							<div class="col-md-6 mb-md-0 p-md-4">
-							  <img src="<%= dados[i].img %>" class="w-px-350" alt="..." />
-							</div>
-							<div class="col-md-6 p-4 ps-md-0">
-							  <h5 class="mt-0"><%= dados[i].titulo %></h5>
-							  <p><%= dados[i].noticia %></p>
-							  <a
-								href="/noticia?id=<%= dados[i].id_noticia %>"
-								class="stretched-link"
-							  >
-								<button type="button" class="btn btn-primary">
-								  Ver Notícia
-								</button></a
-							  >
-							
-						  </div>
-					  </div>
-						<% } %>
-				</div>
 			  </div>
-
-
-		
-	  </div>
 
 	  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>

@@ -1,4 +1,6 @@
-const NoticiasDAO = require("../models/NoticiasDAO");
+const NoticiasDAO = require("../models/NoticiasDAO"); // importando o NoticiasDAO para cá
+const fs = require("fs");
+
 
 module.exports = function (app) {
   app.get("/formulario_inclusao_noticia", function (req, res) {
@@ -17,27 +19,26 @@ module.exports = function (app) {
   });
   app.post("/noticia/salvar", (req, res) => {
     var noticia = req.body;
-    const fs = require("fs");
     const connection = app.config.dbConnection(); // pegando a conexão com o banco
     const noticiasModel = new NoticiasDAO(connection); // pasando a conection como parametro
 
-    //! Função para salvar a imagem da notícia que deseja salvar..!!
-    let formato = req.files.arquivo.name.split("."); // pega só o formato
-    let imagem = ""; // armazenar em uma string
-    if (
-      formato[formato.length - 1] == "jpg" || // se o formato for jpg
-      formato[formato.length - 1] == "png" // se o formato for png
-    ) {
-      imagem = new Date().getTime() + "." + formato[formato.length - 1]; // nome da imagem..!!
-      req.files.arquivo.mv(
-        __dirname + "../../pages/public/imagemNoticia/" + imagem // salvar a imagem nessa pasta ai
-      );
-    } else {
-      fs.unlinkSync(req.files.arquivo.tempFilePath); // caso falhe
-    }
+    // Função para salvar a imagem da notícia que deseja salvar..!!
+    // let formato = req.files.arquivo.name.split("."); // pega só o formato
+    // let imagem = ""; // armazenar em uma string
+    // if (
+    //   formato[formato.length - 1] == "jpg" || // se o formato for jpg
+    //   formato[formato.length - 1] == "png" // se o formato for png
+    // ) {
+    //   imagem = new Date().getTime() + "." + formato[formato.length - 1]; // nome da imagem..!!
+    //   req.files.arquivo.mv(
+    //     __dirname + "../../pages/public/imagemNoticia/" + imagem // salvar a imagem nessa pasta ai
+    //   );
+    // } else {
+    //   fs.unlinkSync(req.files.arquivo.tempFilePath); // caso falhe
+    // }
 
-    var img = `${req.protocol}://${req.headers.host}/imagemNoticia/${imagem}`; // salvar o cominho da imagem
-    noticiasModel.SalvarNoticia(noticia, img, (err, result) => {
+    // var img = `${req.protocol}://${req.headers.host}/imagemNoticia/${imagem}`; // salvar o cominho da imagem
+    noticiasModel.SalvarNoticia(noticia, (err, result) => {
       if (err) return console.log(err);
 
       req.flash("error", "Parabéns 😎 kk você salvou uma noticia nova..!!!");

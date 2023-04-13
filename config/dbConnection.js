@@ -5,7 +5,7 @@ const connMySQL = () => {
   var connection = mysql.createConnection({
     host: "localhost", // local que o banco esta, no caso é local "Na nossa máquina"
     user: "root", // user
-    password: "ifms", // Senha do banco 
+    password: "", // Senha do banco 
     database: "portal_noticias", // nome do banco que esta as tabelas..!!
   });
 
