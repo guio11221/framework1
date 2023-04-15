@@ -3,11 +3,10 @@ const PORT = 3000
 const HOST = 'localhost'
 
 /**
- * 
- * @param {import("ejs").AsyncClientFunction} 
- * 
+ * @author Guii Santos
+ * @description Atividade de frameWork, do IFMS Campus Dourados.
  */
 
 
 // iniciando o servidor na porta que foi definida..!!
-app.listen(PORT, () =>  console.log(`Servidor rodando no http://${HOST}:%d/`, PORT));
+app.listen(PORT, () =>  console.log(`Servidor rodando na porta %d`, PORT));

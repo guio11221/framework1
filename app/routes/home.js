@@ -9,7 +9,7 @@ module.exports = function (app) {
       if (err) return console.log(err)  // ver se teve error no query do banco de dados
 
       var errorMessage = req.flash("error"); // verificar se tem aluma mensagem de error 
-      res.render("home/home.ejs", {
+      res.render("home/home", {
         dados: result,
         message: errorMessage.length > 0 ? errorMessage[0] : null, // se o req.flash for null ele não retorna nenhuma mensagem.
       });

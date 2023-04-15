@@ -5,15 +5,13 @@ const connMySQL = () => {
   var connection = mysql.createConnection({
     host: "localhost", // local que o banco esta, no caso é local "Na nossa máquina"
     user: "root", // user
-    password: "", // Senha do banco 
+    password: "", // Senha do banco
     database: "portal_noticias", // nome do banco que esta as tabelas..!!
   });
-
-  // verifiicando a conexão com o banco de dados
   connection.connect((err) => {
+    // essa função recebe um parametro, que é o error
     // verificando a connection com o banco de dados.
-    if (err) { return console.log(err) } // se tiver error, mostra no console.
-
+    if (err) return console.log(err); // se tiver error, mostra no console.
     return console.log(`Conectado com o Banco de dados`); // se ocorrer tudo bem, mostra essa mensagem no console.
   });
 
@@ -22,4 +20,4 @@ const connMySQL = () => {
 
 module.exports = () => {
   return connMySQL;
-}; // exportando a conection com o banco de dados
+}; 

@@ -38,4 +38,4 @@ function NoticiasDAO(connection) {
 }
 
 // Exportação da função construtora NoticiasDAO como um módulo Node.js
-module.exports = NoticiasDAO; 
+module.exports = NoticiasDAO;

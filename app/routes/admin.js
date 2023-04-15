@@ -11,7 +11,7 @@ module.exports = function (app) {
       if (err) return console.log(err) 
        // ver se teve error no query do banco de dados
       var errorMessage = req.flash("error");
-      res.render("admin/form_add_noticia.ejs", {
+      res.render("admin/form_add_noticia", {
         dados: result,
         message: errorMessage.length > 0 ? errorMessage[0] : null,
       });
