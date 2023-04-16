@@ -62,7 +62,7 @@ function modalEdit(id, titulo, noticia) {
         Swal.fire({
           icon: 'success',
           title: 'Validação bem sucedida!',
-          text: 'Seus dados foram enviados com sucesso.',
+          text: 'Seus dados foram enviados com sucesso...!!',
           confirmButtonText: 'OK'
         });
         form.submit(); // aqui estava forms.submit(), deve ser form.submit()

@@ -1,6 +1,3 @@
-
-
-
 git init: Inicia um novo repositório Git em um diretório vazio.
 
 git clone: Clona um repositório Git existente para um diretório local.

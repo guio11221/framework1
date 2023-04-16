@@ -12,17 +12,17 @@ module.exports = (app) => {
 
       var errorMessage = req.flash("error");
 
+      // verifica se a notícia existe no banco
       if (result == "") {
-        // se o id não existir no banco de dados.
-        req.flash("error", "Nenhum resultado encontrado com o ID: " + id); // retorna uma mensagem para o user
-        return res.redirect(req.headers.referer); // redireciona para a página anterior.
+        req.flash("error", "Nenhum resultado encontrado com o ID: " + id);
+        return res.redirect(req.headers.referer);
       } else {
-        // se o id existir no banco de dados, ele renderiza uma página com os dados.
         return res.render("noticias/noticia", {
           noticias: result,
           message: errorMessage.length > 0 ? errorMessage[0] : null,
-        }); // render a pagina ejs para mostrar a noticia
+        });
       }
+
     });
   });
 

@@ -1,12 +1,11 @@
-var express = require("express"); // importando o express
-var consign = require("consign"); // importando o consign
-var path = require("path"); // importando o módulo de lidar com caminhos
+const express = require("express"); // importando o express
+const consign = require("consign"); // importando o consign
+const path = require("path"); // importando o módulo de lidar com caminhos
 const bodyParser = require("body-parser"); // importando o módulo de lidar com dados do formulário
 const fileUpload = require("express-fileupload"); // importando o módulo de lidar com upload de arquivos
-const fs = require("fs"); // importando o módulo de lidar com arquivos do sistema de arquivos
-var flash = require("connect-flash"); // para enviar mensagem para o front end sobre o status da solicitação
+const flash = require("connect-flash"); // para enviar mensagem para o front end sobre o status da solicitação
 const session = require("express-session"); // Criar um session com o express
-var app = express(); // criando o servidor com o express
+const app = express(); // criando o servidor com o express
 
 /** Configuração */
 app.set("view engine", "ejs"); // definindo a engine de visualização para ejs

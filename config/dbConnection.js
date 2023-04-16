@@ -1,23 +1,22 @@
-const mysql = require("mysql"); // importando o modulo do myysql.
+const mysql = require("mysql");
 
-const connMySQL = () => {
-  // criando a conexão com o banco de dados.
-  var connection = mysql.createConnection({
-    host: "localhost", // local que o banco esta, no caso é local "Na nossa máquina"
-    user: "root", // user
-    password: "", // Senha do banco
-    database: "portal_noticias", // nome do banco que esta as tabelas..!!
+// Cria e retorna uma conexão com o banco de dados MySQL
+function createConnection(config = {}) {
+  const connection = mysql.createConnection({
+    host: config.host || "localhost",
+    user: config.user || "root",
+    password: config.password || "",
+    database: config.database || "portal_noticias",
   });
+
+   // verificando a conexão com o banco
   connection.connect((err) => {
-    // essa função recebe um parametro, que é o error
-    // verificando a connection com o banco de dados.
-    if (err) return console.log(err); // se tiver error, mostra no console.
-    return console.log(`Conectado com o Banco de dados`); // se ocorrer tudo bem, mostra essa mensagem no console.
+    if (err) return console.error(`Erro ao conectar com o banco de dados: ${err}`);
+
+    return console.log("Conexão com o banco de dados estabelecida");
   });
 
-  return connection; // retornando a connection
-};
+  return connection;
+}
 
-module.exports = () => {
-  return connMySQL;
-}; 
+module.exports = () => { return createConnection };
