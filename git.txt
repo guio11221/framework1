@@ -1,0 +1,11 @@
+
+
+status 
+ git status
+
+commit 
+git commit -m "Mensagem de commit"
+
+enviar 
+
+git push
