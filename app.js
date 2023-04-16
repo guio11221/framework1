@@ -1,6 +1,5 @@
 const app = require("./config/server.js"); // importando a configuração do express.
 const PORT = 3000
-const HOST = 'localhost'
 
 /**
  * @author Guii Santos

@@ -17,8 +17,8 @@ module.exports = (app) => {
         req.flash("error", "Nenhum resultado encontrado com o ID: " + id); // retorna uma mensagem para o user
         return res.redirect(req.headers.referer); // redireciona para a página anterior.
       } else {
+        // se o id existir no banco de dados, ele renderiza uma página com os dados.
         return res.render("noticias/noticia", {
-          // se o id existir no banco de dados, ele renderiza uma página com os dados.
           noticias: result,
           message: errorMessage.length > 0 ? errorMessage[0] : null,
         }); // render a pagina ejs para mostrar a noticia
