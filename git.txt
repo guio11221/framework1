@@ -1,11 +1,32 @@
 
 
-status 
- git status
 
-commit 
-git commit -m "Mensagem de commit"
+git init: Inicia um novo repositório Git em um diretório vazio.
 
-enviar 
+git clone: Clona um repositório Git existente para um diretório local.
 
-git push
+git add: Adiciona arquivos ao índice Git (também conhecido como área de preparação) para serem incluídos em um commit.
+
+git commit: Cria um novo commit com as mudanças que foram adicionadas ao índice Git. exemple: git commit -m "Mensagem de commit" .
+
+git push: Envia os commits locais para um repositório remoto.
+
+git pull: Obtém as mudanças mais recentes de um repositório remoto e mescla com o repositório local.
+
+git status: Exibe o status atual do repositório Git, incluindo os arquivos que foram modificados ou adicionados.
+
+git log: Exibe um histórico de commits do repositório.
+
+git branch: Lista as branches do repositório.
+
+git checkout: Troca para uma determinada branch ou commit.
+
+git merge: Mescla uma branch com a branch atual.
+
+git stash: Armazena mudanças em um diretório temporário para serem aplicadas posteriormente.
+
+git remote: Gerencia conexões com repositórios remotos.
+
+git fetch: Obtém os commits mais recentes de um repositório remoto sem mesclá-los com a branch atual.
+
+git revert: Desfaz um commit específico e cria um novo commit com as mudanças desfeitas.
