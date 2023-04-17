@@ -6,6 +6,7 @@ const fileUpload = require("express-fileupload"); // importando o módulo de lid
 const flash = require("connect-flash"); // para enviar mensagem para o front end sobre o status da solicitação
 const session = require("express-session"); // Criar um session com o express
 const app = express(); // criando o servidor com o express
+const axios = require('axios') // consumir api
 
 /** Configuração */
 app.set("view engine", "ejs"); // definindo a engine de visualização para ejs
@@ -38,6 +39,27 @@ consign()
   .then("app/models") // incluindo os modelos
   .then("config/dbConnection.js") // incluindo a conexão com o banco de dados
   .into(app); // adicionando as rotas, modelos e conexão ao app express
+
+
+
+app.get('/api', async (req, res) => {
+
+  try {
+    const { q } = req.query
+
+    const { data } = await axios.get(`https://gnews.io/api/v4/search?q=${q}&lang=pt&country=br&max=1000&apikey=666ccdcb7f7afb07b3a5f23c5f64f607`)
+
+    console.log(data)
+
+    res.send(JSON.stringify(data, null, 2))
+  } catch (error) {
+
+    console.log(error)
+  }
+
+})
+
+
 
 // middleware para lidar com rotas não encontradas
 app.use("*", (req, res, next) => {
