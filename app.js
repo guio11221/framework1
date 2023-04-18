@@ -1,8 +1,6 @@
 const app = require("./config/server.js"); // importando a configuração do express.
 const PORT = 3000
 
-
-
 /*********************************************************************************
   *  Caso encontre algum erro, por favor, me informe. Ainda estou em processo    *
   *  de aprendizagem e estou aberto para corrigir meus erros e melhorar como     *
@@ -16,7 +14,5 @@ const PORT = 3000
   *  para melhorar continuamente e atualizar meus conhecimentos.                 *
   *                                                                              *
   *********************************************************************************/
-
-
 
 app.listen(PORT, () => { return });
