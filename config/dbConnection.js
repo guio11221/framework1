@@ -5,7 +5,7 @@ function createConnection(config = {}) {
   const connection = mysql.createConnection({
     host: config.host || "localhost",
     user: config.user || "root",
-    password: config.password || "",
+    password: config.password || "ifms",
     database: config.database || "portal_noticias",
   });
 

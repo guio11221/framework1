@@ -7,6 +7,7 @@ const flash = require("connect-flash"); // para enviar mensagem para o front end
 const session = require("express-session"); // Criar um session com o express
 const app = express(); // criando o servidor com o express
 const axios = require('axios') // consumir api
+const expressValidator = require('express-validator')
 
 /** Configuração */
 app.set("view engine", "ejs"); // definindo a engine de visualização para ejs
@@ -17,6 +18,8 @@ app.use(express.json()); // habilitando o middleware de parsing de json
 app.use(express.urlencoded({ extended: true })); // habilitando o middleware de parsing de urlencoded
 app.use(bodyParser.urlencoded({ extended: true })); // habilitando o middleware de parsing de dados do formulário
 app.use(bodyParser.json()); // habilitando o middleware de parsing de json para o body do request
+app.use(expressValidator())
+
 
 app.use( // criando uma session.
   session({

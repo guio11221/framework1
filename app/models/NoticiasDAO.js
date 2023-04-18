@@ -18,8 +18,8 @@ function NoticiasDAO(connection) {
   this.SalvarNoticia = function (noticia, callback) {
     // Utilização do método query da conexão com o banco de dados para inserir uma nova notícia e chamar a função callback com os resultados
     conn.query(
-      `INSERT INTO noticias (titulo, noticia) values (?,?)`,
-      [noticia.titulo, noticia.noticia],
+      `INSERT INTO noticias (titulo, noticia, resumo, autor, data_noticia) values (?,?,?,?,?)`,
+      [noticia.titulo, noticia.noticia, noticia.resumo, noticia.autor, noticia.data_noticia],
       callback
     );
   };

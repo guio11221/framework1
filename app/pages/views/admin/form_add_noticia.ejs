@@ -28,12 +28,12 @@
 	<%- include ('../menu/nav.ejs') %>
 
 
-	<% if (message !=null) { %>
+	<% if (validator !=null) { %>
 		<script>
 		  Swal.fire({
 			icon: "info",
 			title: "Resultado da solicitação..!!!",
-			text: "<%= message %>",
+            html: `<% for(var i=0; i< validator.length; i++){%><%= validator[i].msg %>; <br><% } %> `,
 			confirmButtonText: "OK",
 		  });
 		</script>
@@ -55,7 +55,7 @@
 		</div>
   
 		<div class="modal-body">
-		  <div class="row g-2">
+		  
 			<div class="col mb-1">
 			  <label for="dobBasic" class="form-label">Titulo:</label>
 			  <input
@@ -64,33 +64,84 @@
 				placeholder="Titulo da notícia"
 				autocomplete="off"
 				class="form-control"
-				required
+				value="<%= noticia.titulo%>"
+				
 			  />
 			  <div class="invalid-feedback">
 				Você deve por um titulo kkk não sou vidente para saber que
 				notícia é essa ;--;.
 			  </div>
+			
+		  </div>
+		  <div class="col mb-1">
+			<label for="dobBasic" class="form-label">Resumo:</label>
+			<input
+			  type="text"
+			  name="resumo"
+			  placeholder="Resumo da notícia"
+			  autocomplete="off"
+			  class="form-control"
+			  value="<%= noticia.resumo%>"
+			  
+			/>
+			<div class="invalid-feedback">
+			  Você deve por um titulo kkk não sou vidente para saber que
+			  notícia é essa ;--;.
 			</div>
-			<div>
-			  <div class="col mb-0">
-				<label for="dobBasic" class="form-label">Notícia:</label>
-				<textarea
-				  class="form-control"
-				  placeholder="Do que se trata a notícia?"
-				  autocomplete="off"
-				  name="noticia"
-				  id="textArea2"
-				  rows="2"
-				  required
-				></textarea>
-				<div class="invalid-feedback">
-				  Você deve Escrever alguma coisa né meu chapa kskkssz.
-				</div>
-				<br />
+		  </div>
+		  <div class="col mb-1">
+			<label for="dobBasic" class="form-label">Autor:</label>
+			<input
+			  type="text"
+			  name="autor"
+			  placeholder="Autor da notícia"
+			  autocomplete="off"
+			  class="form-control"
+			  value="<%= noticia.autor%>"
+			  
+			/>
+			<div class="invalid-feedback">
+			  Você deve por um titulo kkk não sou vidente para saber que
+			  notícia é essa ;--;.
+			</div>
+		  </div>
+
+		  <div class="col mb-1">
+			<label for="dobBasic" class="form-label">Data:</label>
+			<input
+			  type="date"
+			  name="data_noticia"
+			  placeholder="Data da notícia"
+			  autocomplete="off"
+			  class="form-control"
+			  value="<%= noticia.data_noticia%>"
+			  
+			/>
+			<div class="invalid-feedback">
+			  Você deve por um titulo kkk não sou vidente para saber que
+			  notícia é essa ;--;.
+			</div>
+		  </div>
+
+		  <div>
+			<div class="col mb-0">
+			  <label for="dobBasic" class="form-label">Notícia:</label>
+			  <textarea
+				class="form-control"
+				placeholder="Do que se trata a notícia?"
+				autocomplete="off"
+				name="noticia"
+				id="textArea2"
+				rows="7"
+			  ><%= noticia.titulo%></textarea>
+			  <div class="invalid-feedback">
+				Você deve Escrever alguma coisa né meu chapa kskkssz.
 			  </div>
+			  <br />
 			</div>
 		  </div>
 		</div>
+		
 		<div class="modal-footer">
 		  <button type="submit" class="btn btn-outline-dark" id="proximo">
 			Salvar
