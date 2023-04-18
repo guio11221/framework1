@@ -84,7 +84,7 @@ img {
                                      <div class="card mb-4">
                                         <div class="card-body">
 
-                                        <img src="../olho.gif" style="height: 60vh;" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+                                        <img src="https://i.gifer.com/origin/5a/5aaa4940f67bde0dc453806e1f2c1ce5_w200.gif" style="height: 60vh;" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
                                         <h1 class="text-center">  <%= noticias[0].titulo %></h1>
                                         <%- noticias[0].noticia %>
 
@@ -134,7 +134,7 @@ img {
           <form class="needs-validation" action="/atualizarNoticia" method="post" novalidate>
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">Titulo:</label>
-              <input type="text" name="titulo" class="form-control" value="<%= noticias[0].titulo%>">
+              <input type="text" name="titulo" class="form-control" value="<%= noticias[0].titulo%>" required>
             </div>
             <input type="hidden" name="id" value="<%= noticias[0].id_noticia%>">
             <div class="mb-3">
